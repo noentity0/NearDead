@@ -2,7 +2,7 @@
 
 # 🚑 NearDead
 
-### AI-Powered Emergency Dispatch — Anywhere in the World
+### AI-Powered Emergency Dispatch
 
 **Every second counts. NearDead makes sure the right ambulance goes to the right hospital — right now.**
 
@@ -18,19 +18,17 @@
 
 ## 🧠 The Problem
 
-In any major city, when an emergency call comes in, dispatchers make a life-or-death hospital selection in seconds — often from memory, guesswork, or a phone call to the hospital.
+When an emergency call comes in, dispatchers make a life-or-death hospital selection in seconds — often from memory, guesswork, or a phone call to the hospital.
 
-The result? Ambulances arrive at overwhelmed ERs. Cardiac patients go to hospitals without cath labs. Critical minutes are lost — **in every city, every day.**
+The result? Ambulances arrive at overwhelmed ERs. Cardiac patients go to hospitals without cath labs. Critical minutes are lost.
 
-**NearDead fixes this — for any city, at any scale.**
+**NearDead fixes this.**
 
 ---
 
 ## 💡 What We Built
 
 NearDead is a **real-time emergency dispatch intelligence system** that gives dispatchers a single, AI-ranked answer: *which hospital should this ambulance go to right now?*
-
-It is built to work in **any city** — plug in hospitals, configure capacity, and the system is live. Bangalore is our current demo city, but the platform is city-agnostic by design.
 
 It combines:
 - **Live hospital capacity** (ER beds, ICU, ventilators, wait times)
@@ -132,7 +130,7 @@ pip install -r requirements-integrations.txt
 uvicorn backend.main:app --reload --app-dir ..
 ```
 
-> **No `.env`?** No problem. The API runs against an in-memory demo store with pre-seeded Bangalore hospital data. Zero setup required.
+> **No `.env`?** No problem. The API runs against an in-memory demo store with pre-seeded hospital data. Zero setup required.
 
 ### 3. Run the Frontend
 
@@ -160,14 +158,14 @@ This is the 5-step demo flow to show all system capabilities:
 
 | Step | Action | What You See |
 |------|--------|--------------|
-| 1 | Load the dispatcher dashboard | Live hospital map of Bangalore with capacity indicators |
-| 2 | Enter a cardiac case near MG Road | Condition form auto-fills sensible defaults |
+| 1 | Load the dispatcher dashboard | Live hospital map with capacity indicators |
+| 2 | Enter a cardiac case | Condition form auto-fills sensible defaults |
 | 3 | Click **"Find Hospital"** | Gemini returns 3 ranked hospitals in ~2s with plain-English reasoning |
 | 4 | Confirm Rank #1 (Manipal) | Route locked, incident created, ETA displayed |
 | 5 | Click **"Stress Victoria"** | Victoria Hospital goes to `overwhelmed`, dashboard updates live |
 | 6 | Click **"Run Prediction"** | ML predictor flags which hospitals will hit capacity in 60 min |
 
-> **Demo city:** Bangalore. Expected result: Manipal Hospital (East) ranks above Victoria despite being farther away — because Victoria has no cath lab and is overwhelmed. The same logic applies to any city's hospital network.
+> Expected result: Manipal Hospital ranks above Victoria despite being farther away — because Victoria has no cath lab and is overwhelmed.
 
 ---
 
@@ -175,7 +173,7 @@ This is the 5-step demo flow to show all system capabilities:
 
 Base URL: `http://localhost:8000`
 
-> The API is city-agnostic. Hospital data, coordinates, and capacity are loaded from your database — swap the seed data for any city.
+> Hospital data, coordinates, and capacity are loaded from your database.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -274,7 +272,7 @@ NearDead/
 │
 ├── data/
 │   ├── supabase_setup.sql    # Full Supabase schema
-│   └── seed_neardead.py      # Seeds 10 Bangalore hospitals with realistic data
+│   └── seed_neardead.py      # Seeds hospitals with realistic demo data
 │
 ├── .env.example              # Template for environment variables
 └── README.md
@@ -311,10 +309,6 @@ Copy `.env.example` to `.env` and fill in:
 | **Auth / Realtime** | Supabase |
 
 ---
-
-## 👥 Team
-
-Built with ❤️ for Bangalore's emergency services.
 
 ---
 
