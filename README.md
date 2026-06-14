@@ -2,7 +2,7 @@
 
 # 🚑 NearDead
 
-### AI-Powered Emergency Dispatch for Bangalore
+### AI-Powered Emergency Dispatch — Anywhere in the World
 
 **Every second counts. NearDead makes sure the right ambulance goes to the right hospital — right now.**
 
@@ -18,17 +18,19 @@
 
 ## 🧠 The Problem
 
-Bangalore has **over 12 million people** and growing. When an emergency call comes in, dispatchers make a life-or-death hospital selection in seconds — often from memory, guesswork, or a phone call to the hospital.
+In any major city, when an emergency call comes in, dispatchers make a life-or-death hospital selection in seconds — often from memory, guesswork, or a phone call to the hospital.
 
-The result? Ambulances arrive at overwhelmed ERs. Cardiac patients go to hospitals without cath labs. Critical minutes are lost.
+The result? Ambulances arrive at overwhelmed ERs. Cardiac patients go to hospitals without cath labs. Critical minutes are lost — **in every city, every day.**
 
-**NearDead fixes this.**
+**NearDead fixes this — for any city, at any scale.**
 
 ---
 
 ## 💡 What We Built
 
 NearDead is a **real-time emergency dispatch intelligence system** that gives dispatchers a single, AI-ranked answer: *which hospital should this ambulance go to right now?*
+
+It is built to work in **any city** — plug in hospitals, configure capacity, and the system is live. Bangalore is our current demo city, but the platform is city-agnostic by design.
 
 It combines:
 - **Live hospital capacity** (ER beds, ICU, ventilators, wait times)
@@ -165,13 +167,15 @@ This is the 5-step demo flow to show all system capabilities:
 | 5 | Click **"Stress Victoria"** | Victoria Hospital goes to `overwhelmed`, dashboard updates live |
 | 6 | Click **"Run Prediction"** | ML predictor flags which hospitals will hit capacity in 60 min |
 
-> Expected result: Manipal Hospital (East) ranks above Victoria despite being farther away — because Victoria has no cath lab and is overwhelmed.
+> **Demo city:** Bangalore. Expected result: Manipal Hospital (East) ranks above Victoria despite being farther away — because Victoria has no cath lab and is overwhelmed. The same logic applies to any city's hospital network.
 
 ---
 
 ## 📡 API Reference
 
 Base URL: `http://localhost:8000`
+
+> The API is city-agnostic. Hospital data, coordinates, and capacity are loaded from your database — swap the seed data for any city.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
